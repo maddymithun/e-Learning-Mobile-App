@@ -1,36 +1,30 @@
-📱 E-Learning Mobile Application
-📌 Project Description
-An Android application developed using Kotlin that provides online examinations, result publishing, and online learning features. The app is built using modern Android technologies including Jetpack Compose, Dependency Injection, and Retrofit to ensure scalability, performance, and clean architecture.
-🚀 Features
-Online examination system
-Real-time exam result publishing
-Online learning materials (video & documents)
-Secure user authentication
-Modern UI with Jetpack Compose
-Clean and scalable architecture
-🛠 Tech Stack
-Language: Kotlin
-UI: Jetpack Compose
-Architecture: MVVM + Clean Architecture
-Dependency Injection: Hilt (Dagger)
-Networking: Retrofit, OkHttp
-Asynchronous: Kotlin Coroutines
-State Management: ViewModel, StateFlow
+# E-Learning Mobile App
 
-🏗 Architecture Overview
+## About
+Android application for online exams, result publishing, and online learning.  
+Built with modern Android technologies for scalability and performance.
 
-UI (Jetpack Compose)
-   ↓
-ViewModel
-   ↓
-Use Cases
-   ↓
-Repository
-   ↓
-Remote API (Retrofit)
+## Features
+- Online exam system
+- Instant result publishing
+- E-learning content access
+- Secure authentication
+- Modern UI with Jetpack Compose
 
+## Tech Stack
+- Kotlin
+- Jetpack Compose
+- MVVM Architecture
+- Hilt (Dependency Injection)
+- Retrofit & OkHttp
+- Kotlin Coroutines
 
-🔐 Authentication
-Token-based authentication
-Secure API communication
-Role-based access control
+## Architecture
+- Clean Architecture
+- Repository pattern
+- ViewModel + StateFlow
+
+## Installation
+1. Clone the repository
+   ```bash
+   git clone https://github.com/maddymithun/e-Learning-Mobile-App.git
