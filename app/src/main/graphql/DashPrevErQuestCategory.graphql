@@ -1,0 +1,767 @@
+query DashPrevERQuESTCategory{
+    categories {
+        data {
+            id,
+            attributes {
+                name,
+                code
+            }
+        }
+    }
+}
+
+query SequenceOfExamTomo($exmCode: String!,$pageNumber:Int!){
+    previousYearQuestions(filters: {  category: { code: { eq: $exmCode } } }, pagination: { page: $pageNumber, pageSize: 2000 }) {
+        data {
+            id
+            attributes {
+                sequence
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query DashOrganizationCategory{
+    organizations (pagination: { page: 0, pageSize: 1000 }) {
+        data {
+            id,
+            attributes {
+                name,
+                code
+            }
+        }
+    }
+}
+
+
+query PreviousYearQuestions($sequence: String,$code: String){
+    previousYearQuestions(filters: { sequence: { eq: $sequence }, category: { code: { eq: $code } } }, pagination: { page: 0, pageSize: 3500 }) {
+        data {
+            id
+            attributes {
+                sequence
+                question {
+                    data {
+                        attributes {
+                            question
+                            option_a
+                            option_b
+                            option_c
+                            option_d
+                            option_e
+                            answer
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query PrevYerQuesBySeqCategory($sequence: String!,$categoryCode: String!,$page:Int!){
+    previousYearQuestions(filters: {sequence:{eq:$sequence}
+        category: { code: { eq: $categoryCode } }  }, pagination: { page: $page, pageSize: 3500 }) {
+        data {
+            id
+            attributes {
+                sequence
+                year
+                question {
+                    data {
+                        attributes {
+                            question
+                            option_a
+                            option_b
+                            option_c
+                            option_d
+                            option_e
+                            answer
+                            details
+                        }
+                    }
+                }
+                subject{
+                    data{
+                        attributes{
+                            name
+                        }
+                    }
+                }
+                organization{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+
+                grade{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+                designation{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query YearsOfPvsYrCategoryByInst($categoryCode:String!){
+    categories(filters: { code: { eq: $categoryCode } }) {
+        data {
+            id,
+            attributes {
+                name
+                previous_year_questions(pagination: {
+                    page: 0
+                    pageSize: 50000
+                }) {
+                    data {
+                        attributes {
+                            year
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+query PrevYerQuesByCategoryYear($quesYear: Int!,$categoryCode: String!,$page:Int!){
+    previousYearQuestions(filters: {year:{eq:$quesYear}
+        category: { code: { eq: $categoryCode } }  }, pagination: { page: $page, pageSize: 3500 }) {
+        data {
+            id
+            attributes {
+                sequence
+                year
+                question {
+                    data {
+                        attributes {
+                            question
+                            option_a
+                            option_b
+                            option_c
+                            option_d
+                            option_e
+                            answer
+                            details
+                        }
+                    }
+                }
+                subject{
+                    data{
+                        attributes{
+                            name
+                        }
+                    }
+                }
+                organization{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+
+                grade{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+                designation{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query PrevYerQuesByOrganizationCode($organizationCode: String!,$categoryCode: String!,$page:Int!){
+    previousYearQuestions(filters: {
+        organization: { code: { eq: $organizationCode } }
+        category: { code: { eq: $categoryCode } }
+    }
+        pagination: { page: $page, pageSize: 3500 }) {
+        data {
+            id
+            attributes {
+                sequence
+                year
+                question {
+                    data {
+                        attributes {
+                            question
+                            option_a
+                            option_b
+                            option_c
+                            option_d
+                            option_e
+                            answer
+                            details
+                        }
+                    }
+                }
+                subject{
+                    data{
+                        attributes{
+                            name
+                        }
+                    }
+                }
+                organization{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+
+                grade{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+                designation{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query getOrgNameByCategoryId($categoryCode:String!){
+    categories(filters: { code: { eq: $categoryCode } }) {
+        data {
+            id
+            attributes {
+                name
+                organizations(pagination: { page: 1, pageSize: 2000 }){
+                    data {
+                        id
+                        attributes {
+                            name
+                            code
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+query getDesignationsByOrgCode($categoryCode:String!,$page:Int!){
+    previousYearQuestions(
+        filters: { organization: { code: { eq: $categoryCode } } }
+        pagination: { page: $page, pageSize: 1000 }
+    ) {
+        data {
+            id
+            attributes {
+                designation {
+                    data {
+                        id
+                        attributes {
+                            name
+                            code
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+
+}
+
+query getPrevErQusByOrgDesgCode($orgCode:String!,$desgCode:String!,$page:Int!){
+    previousYearQuestions(
+        filters: {
+            organization: { code: { eq: $orgCode } }
+            designation: { code: { eq: $desgCode } }
+        }
+        pagination: { page: $page, pageSize: 3500 }
+    ) {
+        data {
+            id
+            attributes {
+                sequence
+                year
+                question {
+                    data {
+                        attributes {
+                            question
+                            option_a
+                            option_b
+                            option_c
+                            option_d
+                            option_e
+                            answer
+                            details
+                        }
+                    }
+                }
+                subject{
+                    data{
+                        attributes{
+                            name
+                        }
+                    }
+                }
+                organization{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+
+                grade{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+                designation{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+
+query getAllCourses($page:Int!){
+    courses(
+        pagination: { page: $page, pageSize: 1000 }
+    ) {
+        data {
+            id
+            attributes {
+                name
+                code
+                course_exams(pagination: { page: 0, pageSize: 1000 }){
+                    data{
+                        id
+                        attributes{
+                            syllabus
+                            exam_date
+                            code
+                            publishedAt
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query getCourseQuestions($courseCode:Int!,$page:Int!){
+    courseExamQuestions(
+        filters: { course_exam: { code: { eq: $courseCode } } }
+        pagination: { page: $page, pageSize: 3500 }
+    ) {
+        data {
+            id
+            attributes {
+                question
+                option_a
+                option_b
+                option_c
+                option_d
+                option_e
+                answer
+                course{
+                    data{
+                        id
+                        attributes{
+                            name
+                            code
+                            publishedAt
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query getAllTopics($page:Int!){
+    topics(
+        pagination: { page: $page, pageSize: 2000 }
+    ) {
+        data {
+            id
+            attributes {
+                name
+                code
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query getSubjectWiseTopics($subjectCode:String!,$page:Int!){
+    topics(
+        filters: {
+            subject: { code: { eq: $subjectCode } }
+        }
+        pagination: { page: $page, pageSize: 1500 }
+    ) {
+        data {
+            id
+            attributes {
+                name
+                code
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query getSubTopics($topicsCode:String!,$page:Int!){
+    subTopics(
+        filters: {
+            topic: { code: { eq: $topicsCode } }
+        }
+        pagination: { page: $page, pageSize: 2000 }
+    ) {
+        data {
+            id
+            attributes {
+                name
+                code
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+
+query getAllSubjects($page:Int!){
+    subjects(
+        pagination: { page: $page, pageSize: 2000 }
+    ) {
+        data {
+            id
+            attributes {
+                name
+                code
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+
+query getPrevErQusByTopics($topicsCode:String!,$page:Int!){
+    previousYearQuestions(
+        filters: {
+            topic: { code: { eq: $topicsCode } }
+        }
+        pagination: { page: $page, pageSize: 3500 }
+    ) {
+        data {
+            id
+            attributes {
+                sequence
+                year
+                question {
+                    data {
+                        attributes {
+                            question
+                            option_a
+                            option_b
+                            option_c
+                            option_d
+                            option_e
+                            answer
+                            details
+                        }
+                    }
+                }
+                subject{
+                    data{
+                        attributes{
+                            name
+                        }
+                    }
+                }
+                organization{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+
+                grade{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+                designation{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query getPrevErQuesBySubTopics($subtopicCode:String!,$page:Int!){
+    previousYearQuestions(
+        filters: {
+            sub_topic: { code: { eq: $subtopicCode } }
+        }
+        pagination: { page: $page, pageSize: 3500 }
+    ) {
+        data {
+            id
+            attributes {
+                sequence
+                year
+                question {
+                    data {
+                        attributes {
+                            question
+                            option_a
+                            option_b
+                            option_c
+                            option_d
+                            option_e
+                            answer
+                            details
+                        }
+                    }
+                }
+                subject{
+                    data{
+                        attributes{
+                            name
+                        }
+                    }
+                }
+                organization{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+
+                grade{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+                designation{
+                    data{
+                        attributes{
+                            name
+                            code
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}
+
+query PreviousYearQuestionsByYear($year: Int!,$page:Int!){
+    previousYearQuestions(filters: { year: { eq: $year } }, pagination: { page: $page, pageSize: 20000 }) {
+        data {
+            id
+            attributes {
+                sequence
+                question {
+                    data {
+                        attributes {
+                            question
+                            option_a
+                            option_b
+                            option_c
+                            option_d
+                            option_e
+                            answer
+                        }
+                    }
+                }
+            }
+        }
+        meta {
+            pagination {
+                total
+                page
+                pageSize
+                pageCount
+            }
+        }
+    }
+}

@@ -1,0 +1,40 @@
+package com.example.composecleanarchitecture.ui.theme
+
+import androidx.compose.ui.graphics.Color
+
+val Purple80 = Color(0xFFD0BCFF)
+val PurpleGrey80 = Color(0xFFCCC2DC)
+val Pink80 = Color(0xFFEFB8C8)
+
+val Purple40 = Color(0xFF6650a4)
+val PurpleGrey40 = Color(0xFF625b71)
+val Pink40 = Color(0xFF7D5260)
+
+val SlateGrey = Color(0xFF5F6674)
+val DuskBlue = Color(0xFF28397E)
+val GreyWhite = Color(0xFFD5D5D5)
+val GreyWhite3 = Color(0xFFF8F8F8)
+val BlueGreen = Color(0xFF05A781)
+val IcedBlue = Color(0xFFF2F5FF)
+val VeryPaleGreen = Color(0xFFEBFCE0)
+
+val primaryColor = Color(0xFF3CACB6)
+val secondaryColor = Color(0xFFFAFAFA)
+val cardTextColor=Color(0xFF26727D)
+val brandShade4TextColor= Color(0xFF1C555E)
+val cardBgColor=Color(0xFFEAF3F5)
+val activeTextColor=Color(0xFF308F9D)
+val blackVarColor1=Color(0xFF333333)
+val whiteColor=Color(0xFFFFFFFF)
+val carosoulBgColor=Color(0xFFEAF3F5)
+val unselectedBottomBarColor=Color(0xFF848484)
+val textT6HeaderColor=Color(0xFF707070)
+val dividerColor=Color(0xFFEAEAEA)
+val pathIndicatorColor=Color(0xFF5AD1DC)
+val pathTextColor=Color(0xFF18474E)
+val optionTextColor=Color(0xFF5B5B5B)
+val questionDetailsTextColor=Color(0xFF848484)
+val outlineBorderColor=Color(0xFFD6D6D6)
+val greenTextColor=Color(0xFF0AC047)
+val redTextColor=Color(0xFFF13736)
+val splashBackgroundColor=Color(0xFFE8FCFF)
